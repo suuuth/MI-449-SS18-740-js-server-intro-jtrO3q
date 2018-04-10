@@ -11,6 +11,36 @@ var cute_img = [
   'https://i.imgur.com/lEpj17w.gif',
   'https://i.imgur.com/CR2Ra5d.jpg'
 ]
+var jokes = {
+  'the pencil': {
+    setup: 'A broken pencil'
+    punchline: 'Nevermind, it doesn\'t have a point'
+  }
+  'europe': {
+    setup: 'Europe'
+    punchline: 'No, you\'re a poo'
+  }
+  'theo': {
+    setup: 'Theodore'
+    punchline: 'Theodore wasn\'t open so I knocked'
+  }
+  'amos': {
+    setup: 'Amos'
+    punchline: 'A mosquito'
+  }
+  'whom': {
+    setup: 'To'
+    punchline: 'To whom'
+  }
+  'nana': {
+    setup: 'Nana'
+    punchline: 'Nanna your business'
+  }
+  'etch': {
+    setup: 'Etch'
+    punchline: 'Bless you'
+  }
+}
 
 // Create a new server that just says "Hi!!" at every route
 var server = http.createServer(function (request, response) {
@@ -28,11 +58,16 @@ var server = http.createServer(function (request, response) {
   } else if (request.url === '/random-joke') {
     response.end(
       '<h1>Welcome!</h1>' +
+      '<p>Knock Knock</p>' +
+      '<p>Who\'s there?</p>' +
+      '<p>' + setup + '</p>' + // a broken pencil
+      '<p>' + setup + ' who?</p>' + // a broken pencil who?
+      '<p>' + punchline + '!</p>' + // punchline
       '<p><a href="https://suuuth-js-server-intro.herokuapp.com/">Home</a></p>'
     )
   } else if (request.url === '/cuteness') {
     count = count + 1
-    if (count > cute_img.length) {
+    if (count == cute_img.length) {
       count = 0
     }
     response.end(
@@ -52,6 +87,7 @@ var server = http.createServer(function (request, response) {
     response.end(
       '<h1>Error</h1>' +
       '<p>The requested URL ' + request.url + ' was not found on this server.</p>' +
+      '<iframe width="560" height="315" src="https://www.youtube.com/embed/WbZbLSJoqk4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' +
       '<p><a href="https://suuuth-js-server-intro.herokuapp.com/">Home</a></p>'
     )
   }
