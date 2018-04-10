@@ -7,7 +7,13 @@ var server = http.createServer(function (request, response) {
     response.end( 
       '<h1>Home</h1>' +
       '<h2>Welcome!</h2>' +
-      '<img src="https://i.imgur.com/jKhQJVH.jpg" alt="Waving hi">'
+      '<img src="https://i.imgur.com/jKhQJVH.jpg" alt="Waving hi">' +
+      '<p>Site Navigation</p>' +
+      '<ul>' +
+        '<li><a href="https://suuuth-js-server-intro.herokuapp.com/random-joke">Joke Page!</a></li>' +
+        '<li><a href="https://suuuth-js-server-intro.herokuapp.com/cuteness">Animal Pics!</a></li>' +
+        '<li><h href="https://suuuth-js-server-intro.herokuapp.com/' + math.random()'">Random Page!</a></li>' +
+      '</ul>'
     )
   } else if (request.url === '/random-joke') {
     response.end(
