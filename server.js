@@ -1,5 +1,16 @@
 // Require Node's http module and assign it to a variable
 var http = require('http')
+var count = 0
+var cute_img = [
+  'https://i.imgur.com/unQLJIb.jpg', 
+  'https://i.imgur.com/fu6dIpB.jpg',
+  'https://i.imgur.com/CPqbVW8.jpg',
+  'https://i.imgur.com/PGJvfQs.gif',
+  'https://i.imgur.com/Ckf5OeO.jpg',
+  'https://i.imgur.com/3jq1bv7.jpg',
+  'https://i.imgur.com/lEpj17w.gif',
+  'https://i.imgur.com/CR2Ra5d.jpg'
+]
 
 // Create a new server that just says "Hi!!" at every route
 var server = http.createServer(function (request, response) {
@@ -20,11 +31,23 @@ var server = http.createServer(function (request, response) {
       '<p><a href="https://suuuth-js-server-intro.herokuapp.com/">Home</a></p>'
     )
   } else if (request.url === '/cuteness') {
+    count = count + 1
+    if (count > cute_img.length) {
+      count = 0
+    }
     response.end(
       '<h1>Welcome!</h1>' +
-      '<img src="https://i.imgur.com/fu6dIpB.jpg" alt="cute animal">' +
+      '<img src="' + cute_img[count] + '" alt="cute animal">' +
       '<p><a href="https://suuuth-js-server-intro.herokuapp.com/">Home</a></p>'
     )
+    // https://i.imgur.com/unQLJIb.jpg
+    // https://i.imgur.com/fu6dIpB.jpg
+    // https://i.imgur.com/CPqbVW8.jpg
+    // https://i.imgur.com/PGJvfQs.gif
+    // https://i.imgur.com/Ckf5OeO.jpg
+    // https://i.imgur.com/3jq1bv7.jpg
+    // https://i.imgur.com/lEpj17w.gif
+    // https://i.imgur.com/CR2Ra5d.jpg
   } else {
     response.end(
       '<h1>Error</h1>' +
