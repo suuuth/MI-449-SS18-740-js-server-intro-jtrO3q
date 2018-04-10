@@ -12,7 +12,6 @@ var server = http.createServer(function (request, response) {
       '<ul>' +
         '<li><a href="https://suuuth-js-server-intro.herokuapp.com/random-joke">Joke Page!</a></li>' +
         '<li><a href="https://suuuth-js-server-intro.herokuapp.com/cuteness">Animal Pics!</a></li>' +
-        '<li><h href="https://suuuth-js-server-intro.herokuapp.com/' + math.random() + '">Random Page!</a></li>' +
       '</ul>'
     )
   } else if (request.url === '/random-joke') {
