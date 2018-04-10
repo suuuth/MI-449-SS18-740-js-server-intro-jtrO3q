@@ -6,12 +6,21 @@ var server = http.createServer(function (request, response) {
   if (request.url === '/') {
     response.end( 
       '<h1>Home</h1>' +
+      '<h2>Welcome!</h2>' +
       '<img src="https://i.imgur.com/jKhQJVH.jpg" alt="Waving hi">'
     )
-  } else if (request.url === '/about') {
-    response.end('<h1>About</h1>')
+  } else if (request.url === '/random-joke') {
+    response.end('<h1>Welcome!</h1>')
+  } else if (request.url === '/cuteness') {
+    response.end(
+      '<h1>Welcome!</h1>' +
+      '<img src="https://i.imgur.com/fu6dIpB.jpg" alt="cute animal">'
+    )
   } else {
-    response.end('<h1>Page Not Found</h1>')
+    response.end(
+      '<h1>Error</h1>' +
+      '<p>The requested URL' + request.url + 'was not found on this server.</p>'
+    )
   }
 })
 
