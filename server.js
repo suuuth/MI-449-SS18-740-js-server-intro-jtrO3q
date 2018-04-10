@@ -10,16 +10,21 @@ var server = http.createServer(function (request, response) {
       '<img src="https://i.imgur.com/jKhQJVH.jpg" alt="Waving hi">'
     )
   } else if (request.url === '/random-joke') {
-    response.end('<h1>Welcome!</h1>')
+    response.end(
+      '<h1>Welcome!</h1>' +
+      '<p><a href="https://suuuth-js-server-intro.herokuapp.com/">Home</a></p>'
+    )
   } else if (request.url === '/cuteness') {
     response.end(
       '<h1>Welcome!</h1>' +
-      '<img src="https://i.imgur.com/fu6dIpB.jpg" alt="cute animal">'
+      '<img src="https://i.imgur.com/fu6dIpB.jpg" alt="cute animal">' +
+      '<p><a href="https://suuuth-js-server-intro.herokuapp.com/">Home</a></p>'
     )
   } else {
     response.end(
       '<h1>Error</h1>' +
-      '<p>The requested URL' + request.url + 'was not found on this server.</p>'
+      '<p>The requested URL ' + request.url + ' was not found on this server.</p>' +
+      '<p><a href="https://suuuth-js-server-intro.herokuapp.com/">Home</a></p>'
     )
   }
 })
