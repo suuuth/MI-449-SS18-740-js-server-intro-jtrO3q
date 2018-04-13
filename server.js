@@ -44,6 +44,7 @@ var jokes = {
 var setup
 var punchline
 var thisjoke
+var jokeKeys = Object.keys(jokes)
 
 // Create a new server that just says "Hi!!" at every route
 var server = http.createServer(function (request, response) {
@@ -60,29 +61,9 @@ var server = http.createServer(function (request, response) {
       '</ul>'
     )
   } else if (request.url === '/random-joke') {
-    thisjoke = Math.random()
-    if (thisjoke <= 0.15) {
-      setup = jokes['' + Object.keys(jokes)[0]].setup
-      punchline = jokes['' + Object.keys(jokes)[0]].punchline
-    } else if (thisjoke > 0.15 && thisjoke <= 0.3) {
-      setup = jokes['' + Object.keys(jokes)[1]].setup
-      punchline = jokes['' + Object.keys(jokes)[1]].punchline
-    } else if (thisjoke > 0.3 && thisjoke <= 0.45) {
-      setup = jokes['' + Object.keys(jokes)[2]].setup
-      punchline = jokes['' + Object.keys(jokes)[2]].punchline
-    } else if (thisjoke > 0.45 && thisjoke <= 0.6) {
-      setup = jokes['' + Object.keys(jokes)[3]].setup
-      punchline = jokes['' + Object.keys(jokes)[3]].punchline
-    } else if (thisjoke > 0.6 && thisjoke <= 0.75) {
-      setup = jokes['' + Object.keys(jokes)[4]].setup
-      punchline = jokes['' + Object.keys(jokes)[4]].punchline
-    } else if (thisjoke > 0.75 && thisjoke <= 0.9) {
-      setup = jokes['' + Object.keys(jokes)[5]].setup
-      punchline = jokes['' + Object.keys(jokes)[5]].punchline
-    } else {
-      setup = jokes['' + Object.keys(jokes)[6]].setup
-      punchline = jokes['' + Object.keys(jokes)[6]].punchline
-    }
+    thisjoke = jokeKeys[Math.floor(Math.random() * jokeKeys.length)]
+    setup = jokes[thisjoke].setup
+    punchline = jokes[thisjoke].punchline
     response.end(
       '<h1>Welcome!</h1>' +
       '<p>Knock Knock</p>' +
